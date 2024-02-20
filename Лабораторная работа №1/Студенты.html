@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Студенты</title>
+  </head>
+  <body>
+    <h1>Информация о студентах</h1>
+    <div id="output"></div>
+
+    <script>
+      // Создание двумерного массива с информацией о студентах
+      var students = [
+        ["Иванов", "Иван", 2, "IT"],
+        ["Петров", "Петр", 3, "Медицина"],
+        ["Сидоров", "Алексей", 1, "IT"],
+        ["Козлова", "Елена", 2, "Финансы"],
+        ["Михайлов", "Дмитрий", 3, "IT"],
+        ["Андреев", "Сергей", 1, "IT"],
+      ];
+
+      // Получение кода направления от пользователя
+      var directionCode = prompt("Введите код направления:").toUpperCase();
+
+      // Поиск и вывод информации о студентах заданного направления
+      var output = document.getElementById("output");
+      output.innerHTML = "<h2>Студенты направления " + directionCode + "</h2>";
+      for (var i = 0; i < students.length; i++) {
+        if (students[i][3] === directionCode) {
+          output.innerHTML +=
+            "<p>" +
+            students[i][0] +
+            " " +
+            students[i][1] +
+            " - Курс " +
+            students[i][2] +
+            "</p>";
+        }
+      }
+
+      // Вывод информации о студентах других направлений в консоль
+      console.log("Студенты других направлений:");
+      for (var j = 0; j < students.length; j++) {
+        if (students[j][3] !== directionCode) {
+          console.log(
+            students[j][0] +
+              " " +
+              students[j][1] +
+              " - Курс " +
+              students[j][2] +
+              ", направление: " +
+              students[j][3]
+          );
+        }
+      }
+    </script>
+  </body>
+</html>
