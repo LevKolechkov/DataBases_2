@@ -9,5 +9,6 @@ db.EMPLOYEE_BLANK.find(
     sername: 1,
     father_name: 1,
     email: 1,
+    count_of_hobbies: { $size: "$hobbies" },
   }
 );
